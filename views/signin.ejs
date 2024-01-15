@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<%- include('_bootstrap_meta')%>
+
+		<title>Sign In</title>
+	</head>
+	<body style="background-image: linear-gradient(-225deg, #E3FDF5 0%, #FFE6FA 100%)">
+		<%- include('_header')%>
+		<div
+			class="w-50 mx-auto mt-5"
+			style="
+				height: 60vh;
+				display: grid;
+				place-content: center;
+				width: 530px;
+				background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
+				border-radius: 5px;
+				box-shadow: 7px 7px 12px rgba(0, 0, 0, 0.05);
+			"
+		>
+			<div class="mx-auto mt-3 mb-3" style="width: 100px">
+				<h3>Sign In</h3>
+			</div>
+
+			<form action="/users/create-session" method="POST" style="width: 300px">
+				<!-- Email input -->
+				<div class="form-outline mb-4">
+					<label class="form-label" for="email">Enter Email</label>
+					<input type="email" class="form-control" id="email" placeholder="abc@email.com" name="email" required />
+				</div>
+
+				<!-- Password input -->
+				<div class="form-outline mb-4">
+					<label class="form-label" for="password">Enter Password</label>
+					<input type="password" id="password" class="form-control" name="password" required />
+				</div>
+
+				<!-- Submit button -->
+				<button type="submit" class="btn btn-success btn-block mb-4" style="background: #fbbdd1; color: black;">Sign in</button>
+
+				<!-- Register buttons -->
+				<div class="text-center">
+					<p>Need an Account? <a href="/users/signup">Register</a></p>
+				</div>
+			</form>
+		</div>
+		<%- include('_bootstrap_script')%>
+	</body>
+</html>

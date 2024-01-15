@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="./css/navbar.css">
+</head>
+<body>
+	
+	<header>
+		<% if (locals.user) { %>
+		<nav class="navbar navbar-dark" style="background-color: #c3e5fd;">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="/" style="color: black;">Dashboard</a>
+				<a class="navbar-brand" href="/" style="color: black;">Welcome <%=locals.user.name%></a>
+				<form class="d-flex px-4">
+					<a class="navbar-brand p-2" href="/company/home" style="color: black;">Company List</a>
+					<a class="navbar-brand p-2" href="/users/download-csv" style="color: black;">Download Report</a>
+					<a class="navbar-brand p-2" href="/users/signout" style="background: #0d3259; color: white; border-radius: 5px">Sign out</a>
+				</form>
+			</div>
+		</nav>
+		<% } %>
+	</header>
+
+</body>
+</html>
+
+
