@@ -1,0 +1,11 @@
+.navbar-brand::after {
+    content: '';
+    display: block;
+    width: 0px;
+    height: 2px;
+    background: #fec400;
+    transition: 0.4s
+}
+.navbar-brand:hover::after {
+    width: 100%
+}
