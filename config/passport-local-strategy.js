@@ -41,27 +41,29 @@ const User = require('../models/userSchema');
 // });
 
 // authentication using passport
-passport.use(new LocalStrategy({
+
+ passport.use(new LocalStrategy({
   usernameField: 'email',
-}, async (email, password, done) => {
-  try {
+}, async function (email, password, done) {
+    try {
       const user = await User.findOne({ email });
 
       if (!user || user.password !== password) {
-          return done(null, false, { message: 'Invalid email or password' });
+        return done(null, false, { message: 'Invalid email or password' });
       }
 
       return done(null, user);
-  } catch (error) {
+    } catch (error) {
       return done(error);
-  }
-}));
-
-passport.serializeUser((user, done) => {
-  done(null, user.id);
+    }
+  }));
+  
+// passport.use('local', local);
+passport.serializeUser(async (user, done) => {
+ done(null, user.id);
 });
 
-passport.deserializeUser(async (id, done) => {
+passport.deserializeUser(async  (id, done) => {
   try {
       const user = await User.findById(id);
       if (!user) {
