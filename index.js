@@ -2,13 +2,15 @@ const express = require('express');
 const dotenv = require('dotenv');
 const db = require('./config/mongoose');
 const session = require('express-session');
-// const passport = require('passport');
-// const passportLocal = require('./config/passport-local-startegy');
+const passport = require('passport');
+const passportLocal = require('./config/passport-local-strategy');
 const port = process.env.PORT || 3200;
+
+
 dotenv.config({ path: 'config/.env' });
 
 const app = express();
-
+// set ejs as view engine
 app.set('view engine', 'ejs');
 app.set('views', './views');
 app.use(
@@ -45,5 +47,5 @@ app.listen(port, function (error) {
 		console.log(`Error in connecting to server: ${error}`);
 		return;
 	}
-	console.log(`Server is up and running on port: ${port}`);
+	console.log(`Server running on port: ${port}`);
 });
