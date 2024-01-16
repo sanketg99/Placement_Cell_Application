@@ -42,7 +42,7 @@ const User = require('../models/userSchema');
 
 // authentication using passport
 
- passport.use(new LocalStrategy({
+ const local = new LocalStrategy({
   usernameField: 'email',
 }, async function (email, password, done) {
     try {
@@ -56,22 +56,22 @@ const User = require('../models/userSchema');
     } catch (error) {
       return done(error);
     }
-  }));
+  });
   
-// passport.use('local', local);
-passport.serializeUser(async (user, done) => {
- done(null, user.id);
+passport.use('local', local);
+passport.serializeUser(async function (user, done) {
+  done(null, user.id);
 });
 
-passport.deserializeUser(async  (id, done) => {
+passport.deserializeUser(async function (id, done) {
   try {
-      const user = await User.findById(id);
-      if (!user) {
-          return done(null, false);
-      }
-      return done(null, user);
+    const user = await User.findById(id);
+    if (!user) {
+      return done(null, false);
+    }
+    return done(null, user);
   } catch (error) {
-      return done(error);
+    return done(error);
   }
 });
 
@@ -90,3 +90,5 @@ passport.setAuthenticatedUser = function (req, res, next) {
   }
   next();
 };
+
+module.exports = passport;
