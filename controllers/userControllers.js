@@ -40,7 +40,7 @@ module.exports.createUser = async function (req, res) {
 	const { name, email, password, confirmPassword } = req.body;
 	try {
 		if (password !== confirmPassword) {
-			console.log(`Passwords dont match`);
+			console.log(`Passwords not matched`);
 			return res.redirect('back');
 		}
 		const user = await User.findOne({ email });
