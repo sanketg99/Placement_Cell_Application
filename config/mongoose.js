@@ -1,11 +1,6 @@
 const mongoose = require('mongoose');
-const DB = 'mongodb://localhost:27017/Placement_Cell_App';
 
-
-mongoose.connect(DB, {
-	useNewUrlParser: true,
-	useUnifiedTopology: true,
-});
+mongoose.connect(`mongodb://localhost:27017/Placement_Cell_App`);
 
 const db = mongoose.connection;
 
@@ -16,3 +11,5 @@ db.once('open', function () {
 });
 
 module.exports = mongoose;
+module.exports = db;
+
