@@ -8,7 +8,6 @@ const LocalStrategy = require('passport-local').Strategy;
 const local = new LocalStrategy({ usernameField: 'email' }, async function (email, password, done) {
   try{
     const user= await User.findOne({ email }); 
-console.log("meeeee");
     if (!user || !user.isPasswordCorrect(password)) {
       console.log('Invalid Username/Password');
       return done(null, false);
