@@ -6,16 +6,16 @@
 		<title>Company Home</title>
 	</head>
 
-	<body style="background-image: linear-gradient(-225deg, #E3FDF5 0%, #FFE6FA 100%)">
+	<body style="background-color: #cbcbc9;">
 		<%- include('_header') %>
 		<div class="w-75 mx-auto mt-5">
 			<div class="row">
 				<div class="col-6">
-					<h1>Interviews</h1>
+					<u><h1>Interview Details:</h1></u>
 				</div>
 
 				<div class="col-6 d-flex justify-content-end">
-					<a href="/company/allocate" type="button" class="btn btn-success align-self-center">Allocate Interview</a>
+					<a href="/company/allocate" type="button" class="btn btn-success align-self-center" style="background-color: rgb(82, 82, 83);">Allocate Interview</a>
 				</div>
 			</div>
 
@@ -59,7 +59,7 @@
 										<option value="Pending">Pending</option>
 										<option value="Did not Attempt">Did not Attempt</option>
 									</select>
-
+                                
 									<button type="submit" class="btn btn-warning btn-small m-2">Update</button>
 								</form>
 							</td>
@@ -67,6 +67,7 @@
 						<%i++%> <%}%> <%}%>
 					</tbody>
 				</table>
+				<p> NOTE: "Please click the 'Update' button after selecting the desired result option for candidate."</p>
 			</div>
 			<%}else{%>
 			<div class="w-75 mx-auto mt-5">

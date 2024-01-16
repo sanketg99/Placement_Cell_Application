@@ -1,11 +1,14 @@
 .navbar-brand::after {
-    content: '';
+    /* content: '';
     display: block;
     width: 0px;
-    height: 2px;
-    background: #fec400;
-    transition: 0.4s
+    height: 1px;
+    background: #10100f;
+    transition: 0.5s */
+}
+.navbar-brand:hover {
+    background-color: #f4eeee;  /* Change the background color as needed */
 }
 .navbar-brand:hover::after {
-    width: 100%
+    /* width: 100% */
 }

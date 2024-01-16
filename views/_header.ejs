@@ -10,14 +10,14 @@
 	
 	<header>
 		<% if (locals.user) { %>
-		<nav class="navbar navbar-dark" style="background-color: #c3e5fd;">
+		<nav class="navbar navbar-dark" style="background-color: #8d8d8d;">
 			<div class="container-fluid">
-				<a class="navbar-brand" href="/" style="color: black;">Dashboard</a>
-				<a class="navbar-brand" href="/" style="color: black;">Welcome <%=locals.user.name%></a>
+				<a class="navbar-brand p-2" href="/" style="color: black; border-radius: 8px ; border: 2px solid #010101"><h5> Dashboard </h5></a>
+				<a class="navbar-brand p-2" href="/" style="color: black; border-radius: 8px ; "><h5> Hi <%=locals.user.name%>, Welcome to Placement Cell!</h5></a>
 				<form class="d-flex px-4">
-					<a class="navbar-brand p-2" href="/company/home" style="color: black;">Company List</a>
-					<a class="navbar-brand p-2" href="/users/download-csv" style="color: black;">Download Report</a>
-					<a class="navbar-brand p-2" href="/users/signout" style="background: #0d3259; color: white; border-radius: 5px">Sign out</a>
+					<a class="navbar-brand p-2" href="/company/home" style="color: black; border-radius: 8px; border: 2px solid #010101;"><h5> Company List </h5></a>
+					<a class="navbar-brand p-2" href="/users/download-csv" style="color: black; border-radius: 8px ; border: 2px solid #010101"><h5> Download Report </h5></a>
+					<a class="navbar-brand p-2" href="/users/signout" style=" color: black; border-radius: 8px ; border: 2px solid #010101"><h5> Sign out </h5></a>
 				</form>
 			</div>
 		</nav>
