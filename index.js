@@ -48,5 +48,5 @@ app.listen(port, function (error) {
 		console.log(`Error in connecting to server: ${error}`);
 		return;
 	}
-	console.log(`Server running on port: ${port}`);
+	console.log(`Server running on port::${port}`);
 });
