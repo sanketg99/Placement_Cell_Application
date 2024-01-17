@@ -45,7 +45,7 @@ It is built using NodeJs, ExpressJs, MongoDB, EJS and JavaScript.
 - passport
 - passport-local
 
-## 🖼️ Screenhorts
+## 🖼️ Screenshorts
 ![signIn page](./assets/image/Sign_In.png)
 ![signUp page](./assets/image/Sign_Up.png)
 ![home page](./assets/image/Home_page.png)
