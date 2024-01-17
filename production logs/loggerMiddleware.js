@@ -6,7 +6,7 @@ async function log(logData) {
     try {
         logData = `\n ${new Date().toString()} - ${logData}`;
         await fsPromise.appendFile(
-            'C:\Users\SAGORADE\Desktop\Placement_Cell_Application\production logs\log.txt', 
+            'production logs/log.txt',
             logData
             );
     } catch(err) {
