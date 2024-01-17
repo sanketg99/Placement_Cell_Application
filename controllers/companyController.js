@@ -40,7 +40,7 @@ module.exports.scheduleInterview = async function (req, res) {
     const obj = {
       student: id,
       date,
-      result: 'Pending',
+      result: 'On Hold',
     };
     // if company doesnt exist
     if (!existingCompany) {
@@ -67,7 +67,7 @@ module.exports.scheduleInterview = async function (req, res) {
       const interview = {
         company,
         date,
-        result: 'Pending',
+        result: 'On Hold',
       };
       student.interviews.push(interview);
       student.save();

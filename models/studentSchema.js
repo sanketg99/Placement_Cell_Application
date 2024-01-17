@@ -50,7 +50,7 @@ const studentSchema = new mongoose.Schema(
 				},
 				result: {
 					type: String,
-					enum: ['On Hold', 'Selected', 'Pending', 'Not Selected', 'Did not Attempt'],
+					enum: ['On Hold', 'PASS', 'FAIL', 'Did not Attempt'],
 				},
 			},
 		],

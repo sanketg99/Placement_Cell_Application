@@ -74,42 +74,15 @@ module.exports.createUser = async function (req, res) {
 module.exports.downloadCsv = async function (req, res) {
 	try {
 		const students = await Student.find({});
+		let csv = 'S.No, Name, Email, College, Placement, Contact Number, Batch, DSA Score, WebDev Score,React Score, Interview, Date, Result \n';
+        let no = 1;
 
-		let data = '';
-		let no = 1;
-		let csv = 'S.No, Name, Email, College, Placemnt, Contact Number, Batch, DSA Score, WebDev Score, React Score, Interview, Date, Result';
-
-		for (let student of students) {
-			data =
-				no +
-				',' +
-				student.name +
-				',' +
-				student.email +
-				',' +
-				student.college +
-				',' +
-				student.placement +
-				',' +
-				student.contactNumber +
-				',' +
-				student.batch +
-				',' +
-				student.dsa +
-				',' +
-				student.webd +
-				',' +
-				student.react;
-
-			if (student.interviews.length > 0) {
-				for (let interview of student.interviews) {
-					data += ',' + interview.company + ',' + interview.date.toString() + ',' + interview.result;
-				}
-			}
-			no++;
-			csv += '\n' + data;
-		}
-
+        for(let student of students){
+            for(let i of student.interviews){
+                csv += `${no} , ${student.name} , ${student.email} , ${student.college} , ${student.placement} , ${student.contactNumber} , ${student.batch} , ${student.dsa} , ${student.webd}, ${student.react} , ${i.company} , ${i.date.toString()}, ${i.result} \n` ;
+                no++;
+            }
+        }
 		const dataFile = fs.writeFile('report/data.csv', csv, function (error, data) {
 			if (error) {
 				console.log(error);

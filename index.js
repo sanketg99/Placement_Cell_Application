@@ -5,6 +5,7 @@ const db = require('./config/mongoose');
 const session = require('express-session');
 const passport = require('passport');
 const passportLocal = require('./config/passport-local-strategy');
+const loggerMiddleware = require('./production logs/loggerMiddleware');
 const port = process.env.PORT || 3200;
 
 // configuration of dotenv
@@ -12,11 +13,14 @@ dotenv.config({ path: 'config/.env' });
 
 const app = express();
 
+// for logs
+app.use(loggerMiddleware);
+
 // set ejs as view engine
 app.set('view engine', 'ejs');
 app.set('views', './views');
 app.use(session({
-	secret: "secret", // SECRET is stored in the system veriable
+	secret: "secret",   //Todo change the secret before deployment in production mode
 	//if the session data is alredy stored we dont need to rewrite it again and again so this is set to false
 	resave: false,
 	//when the user is not logged in or identity is not establish in that case we dont need to save extra data in
