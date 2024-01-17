@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
-mongoose.connect(`mongodb://localhost:27017/Placement_Cell_App`);
-
+mongoose.connect(`mongodb+srv://sanketbg99:sanket123@cluster0.ewcrs64.mongodb.net/?retryWrites=true&w=majority`);
+//mongodb://localhost:27017/Placement_Cell_App
 const db = mongoose.connection;
 
 db.on('error', console.error.bind(console, 'Error in connecting to MongoDB'));
